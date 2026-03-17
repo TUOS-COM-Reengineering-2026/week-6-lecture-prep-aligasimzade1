@@ -1,18 +1,17 @@
+from random import randint
+
 # PART 1
 def is_palindrome(s):
-    # Check if a string is a palindrome or not.
-    # To make it simple, let's assume that an empty string is a palindrome.
+    left = 0
+    right = len(s) - 1
 
-    if len(s) <= 1:
-        return True  # base case 1
-    elif s[0] != s[-1]:
-        return False  # base case 2
-    else:
-        return is_palindrome(s[1:-1]) # recursive case
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
 
-    # TODO: test_palindrome_long() will trigger RecursionError. Can you fix it by rewriting the above code?
-    # HINT: You can use a loop to replace the recursive call.
-    # TODO: How do you check if your fix is correct?
+    return True
 
 
 # PART 2
@@ -23,7 +22,6 @@ def is_small(a):
         return False
 
 def randomised_function():
-    from random import randint
     a = randint(0, 10)
 
     if is_small(a):
